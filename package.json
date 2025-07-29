@@ -1,0 +1,20 @@
+{
+  "name": "automation_t",
+  "version": "1.0.0",
+  "description": "automationJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "devDependencies": {
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1",
+    "selenium-webdriver": "^4.34.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
