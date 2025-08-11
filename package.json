@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js",
+    "test": "npx cucumber-js",
     "format": "prettier --write ."
   },
   "author": "",
