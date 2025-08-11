@@ -3,7 +3,8 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const { By, until } = require('selenium-webdriver');
 const createDriver = require('../../utils/driver');
 const loginPage = require('../../pageObjects/loginPage.js');
-const { expect } = require('chai');
+import chai from 'chai';
+const expect = chai.expect;
 const cartPage = require('../../pageObjects/cartPage.js');
 
 console.log('createDriver loaded:', typeof createDriver);

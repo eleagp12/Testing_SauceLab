@@ -2,6 +2,7 @@
   "name": "automation_t",
   "version": "1.0.0",
   "description": "automationJs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
