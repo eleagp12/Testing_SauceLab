@@ -13,6 +13,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^12.1.0",
     "chai": "^5.2.1",
+    "cucumber": "^6.0.7",
     "mocha": "^11.7.1",
     "prettier": "^3.6.2",
     "selenium-webdriver": "^4.34.0"
