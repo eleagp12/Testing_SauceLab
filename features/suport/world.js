@@ -1,5 +1,5 @@
-const { setWorldConstructor } = require('@cucumber/cucumber');
-const createDriver = require('../../utils/driver');
+import { setWorldConstructor } from '@cucumber/cucumber';
+import createDriver from '../../utils/driver.js'; // add .js extension for local imports
 
 class CustomWorld {
   constructor() {

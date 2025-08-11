@@ -1,11 +1,17 @@
-require('dotenv').config();
-const { Given, When, Then } = require('@cucumber/cucumber');
-const { By, until } = require('selenium-webdriver');
-const createDriver = require('../../utils/driver');
-const loginPage = require('../../pageObjects/loginPage.js');
-import chai from 'chai';
-const expect = chai.expect;
-const cartPage = require('../../pageObjects/cartPage.js');
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { Given, When, Then } from '@cucumber/cucumber';
+import { By, until } from 'selenium-webdriver';
+import createDriver from '../../utils/driver.js';
+import loginPage from '../../pageObjects/loginPage.js';
+import { expect } from 'chai';
+
+import {
+  addProductToCart,
+  openCart,
+  isProductInCart,
+} from '../../pageObjects/cartPage.js';
 
 console.log('createDriver loaded:', typeof createDriver);
 
@@ -27,7 +33,7 @@ Then('I check for any emergency windows', async function () {
   const errorButtons = await this.driver.findElements(
     By.className('error-button'),
   );
-  if (errorButtons > 0) {
+  if (errorButtons.length > 0) {
     console.log('Emergency window detected. Closing...');
     await errorButtons[0].click();
   }
@@ -35,13 +41,13 @@ Then('I check for any emergency windows', async function () {
 
 Then('I add a product to the cart', async function () {
   console.log('Looking for a product...');
-  await cartPage.addProductToCart(this.driver);
+  await addProductToCart(this.driver);
 });
 
 Then('I verify the cart contains the product', async function () {
   console.log('Navigation to cart...');
-  await cartPage.openCart(this.driver);
-  const isInCart = await cartPage.isProductInCart(this.driver);
+  await openCart(this.driver);
+  const isInCart = await isProductInCart(this.driver);
   expect(isInCart).to.be.true;
 });
 

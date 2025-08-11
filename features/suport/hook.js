@@ -1,6 +1,6 @@
-const { After, AfterStep } = require('@cucumber/cucumber');
-const fs = require('fs');
-const path = require('path');
+import { After, AfterStep } from '@cucumber/cucumber';
+import fs from 'fs';
+import path from 'path';
 
 AfterStep(async function (step) {
   if (step.result.status === 'FAILED') {

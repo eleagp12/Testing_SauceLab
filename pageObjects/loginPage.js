@@ -1,6 +1,6 @@
-const { By, until } = require('selenium-webdriver');
+import { By, until } from 'selenium-webdriver';
 
-module.exports = {
+export default {
   async getUsernameInput(driver) {
     await driver.wait(until.elementLocated(By.name('user-name')), 50000);
     return driver.findElement(By.name('user-name'));
@@ -15,6 +15,7 @@ module.exports = {
     await driver.wait(until.elementLocated(By.name('login-button')), 50000);
     return driver.findElement(By.name('login-button'));
   },
+
   async enterCredentials(driver, username, password) {
     const userField = await this.getUsernameInput(driver);
     await userField.sendKeys(username);

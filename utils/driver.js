@@ -1,8 +1,9 @@
-const { Builder } = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
+import { Builder } from 'selenium-webdriver';
+import chrome from 'selenium-webdriver/chrome.js';
+
 const options = new chrome.Options();
 
-function createDriver() {
+export default function createDriver() {
   if (process.env.HEADLESS === 'true') {
     options.addArguments('--headless', '--disable-gpu');
   }
@@ -18,5 +19,3 @@ function createDriver() {
 
   return new Builder().forBrowser('chrome').setChromeOptions(options).build();
 }
-
-module.exports = createDriver;
